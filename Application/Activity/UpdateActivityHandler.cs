@@ -17,6 +17,10 @@ public class UpdateActivityHandler : IRequestHandler<UpdateActivityCommand, Acti
         {
             return null;
         }
+        index.UpdateActivity(request.Description,request.Kind,request.DueTime,request.ContactId);
+        await _repository.SaveAsync();
+
+        return index;
 
     }
 }
